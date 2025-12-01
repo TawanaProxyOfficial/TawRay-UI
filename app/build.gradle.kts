@@ -68,9 +68,6 @@ dependencies {
     // ViewModel
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.2")
     
-    // Accompanist for system UI controller
-    implementation("com.google.accompanist:accompanist-systemuicontroller:0.32.0")
-    
     // Testing
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")

@@ -102,7 +102,7 @@ The app uses a custom dark theme with the following colors:
 - Material 3
 - Navigation Compose
 - Lifecycle ViewModel Compose
-- Accompanist System UI Controller
+- AndroidX Core KTX
 
 ## Contributing
 

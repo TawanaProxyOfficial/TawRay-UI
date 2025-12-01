@@ -27,7 +27,7 @@ fun HomeScreen(
     modifier: Modifier = Modifier
 ) {
     var isConnected by remember { mutableStateOf(false) }
-    var selectedServer by remember { mutableStateOf(ServerData.servers.first()) }
+    var selectedServer by remember { mutableStateOf(ServerData.servers.firstOrNull() ?: Server("Best Location", "🌍", true, "Automatic")) }
 
     Scaffold(
         modifier = modifier.fillMaxSize(),
