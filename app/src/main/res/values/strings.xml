@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">TawRay</string>
+    <string name="connected">Connected</string>
+    <string name="disconnected">Disconnected</string>
+    <string name="connect">Connect</string>
+    <string name="disconnect">Disconnect</string>
+    <string name="all_locations">All locations</string>
+    <string name="best_location">Best Location</string>
+    <string name="us_central">US Central</string>
+    <string name="us_east">US East</string>
+    <string name="us_west">US West</string>
+    <string name="canada_east">Canada East</string>
+    <string name="canada_west">Canada West</string>
+    <string name="austria">Austria</string>
+    <string name="upgrade_pro">Upgrade to Pro</string>
+    <string name="unlock_full_access">Unlock full access</string>
+    <string name="data_used">%s GB</string>
+    <string name="protocol">IKEv2 500</string>
+    <string name="menu_description">Menu</string>
+    <string name="connection_button_description">Connection button</string>
+    <string name="search_description">Search</string>
+</resources>
