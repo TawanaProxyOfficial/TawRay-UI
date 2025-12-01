@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TawRay VPN - UI Preview</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #000000;
+            color: #FFFFFF;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            background: #0D1117;
+            width: 100%;
+            max-width: 400px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 20px;
+            background: #0D1117;
+        }
+
+        .menu-icon {
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .settings-icon {
+            width: 24px;
+            height: 24px;
+            border: 2px solid #8B949E;
+            border-radius: 4px;
+        }
+
+        /* Status Section */
+        .status-section {
+            padding: 32px 20px;
+            text-align: center;
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #161B22;
+            padding: 8px 16px;
+            border-radius: 20px;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #8B949E;
+        }
+
+        .protocol {
+            color: #8B949E;
+            font-size: 12px;
+            margin-bottom: 24px;
+        }
+
+        .server-name {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .network-status {
+            color: #8B949E;
+            font-size: 14px;
+            margin-bottom: 32px;
+        }
+
+        /* Power Button */
+        .power-button {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 32px;
+            background: #161B22;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 4px solid #1F2937;
+        }
+
+        .power-button:hover {
+            transform: scale(1.05);
+            border-color: #00C853;
+        }
+
+        .power-icon {
+            font-size: 48px;
+            color: #FFFFFF;
+        }
+
+        /* Toolbar */
+        .toolbar {
+            display: flex;
+            justify-content: space-around;
+            padding: 20px 20px 24px;
+            border-top: 1px solid #161B22;
+            border-bottom: 1px solid #161B22;
+        }
+
+        .toolbar-icon {
+            font-size: 28px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .toolbar-icon:hover {
+            transform: scale(1.1);
+        }
+
+        /* Server List */
+        .server-list {
+            padding: 20px;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .list-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .search-icon {
+            color: #8B949E;
+            cursor: pointer;
+        }
+
+        .server-item {
+            display: flex;
+            align-items: center;
+            padding: 16px;
+            background: #161B22;
+            border-radius: 8px;
+            margin-bottom: 8px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .server-item:hover {
+            background: #1F2937;
+        }
+
+        .server-flag {
+            font-size: 32px;
+            margin-right: 16px;
+        }
+
+        .server-info {
+            flex: 1;
+        }
+
+        .server-title {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .server-subtitle {
+            font-size: 13px;
+            color: #8B949E;
+        }
+
+        .server-action {
+            font-size: 20px;
+            color: #8B949E;
+        }
+
+        /* Upgrade Banner */
+        .upgrade-banner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+            background: #161B22;
+            margin: 16px 20px 20px;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .upgrade-banner:hover {
+            background: #1F2937;
+        }
+
+        .upgrade-content {
+            flex: 1;
+        }
+
+        .upgrade-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #FFD700;
+            margin-bottom: 4px;
+        }
+
+        .upgrade-data {
+            font-size: 14px;
+            color: #FFFFFF;
+            margin-bottom: 2px;
+        }
+
+        .upgrade-subtitle {
+            font-size: 12px;
+            color: #8B949E;
+        }
+
+        .upgrade-arrow {
+            font-size: 24px;
+            color: #FFD700;
+        }
+
+        /* Scrollbar */
+        .server-list::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .server-list::-webkit-scrollbar-track {
+            background: #0D1117;
+        }
+
+        .server-list::-webkit-scrollbar-thumb {
+            background: #161B22;
+            border-radius: 3px;
+        }
+
+        .server-list::-webkit-scrollbar-thumb:hover {
+            background: #1F2937;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="menu-icon">☰</div>
+            <div class="logo">TawRay</div>
+            <div class="settings-icon"></div>
+        </div>
+
+        <!-- Status Section -->
+        <div class="status-section">
+            <div class="status-badge">
+                <span class="status-dot"></span>
+                <span>OFF</span>
+            </div>
+            <div class="protocol">IKEv2 500</div>
+            <div class="server-name">Bucharest No Vampires</div>
+            <div class="network-status">Unknown network</div>
+            
+            <!-- Power Button -->
+            <div class="power-button">
+                <div class="power-icon">⏻</div>
+            </div>
+        </div>
+
+        <!-- Toolbar -->
+        <div class="toolbar">
+            <div class="toolbar-icon">🛡️</div>
+            <div class="toolbar-icon">❤️</div>
+            <div class="toolbar-icon">📍</div>
+            <div class="toolbar-icon">🖥️</div>
+        </div>
+
+        <!-- Server List -->
+        <div class="server-list">
+            <div class="list-header">
+                <span>All locations (188)</span>
+                <span class="search-icon">🔍</span>
+            </div>
+
+            <div class="server-item">
+                <div class="server-flag">🌍</div>
+                <div class="server-info">
+                    <div class="server-title">Best Location</div>
+                    <div class="server-subtitle">Automatic</div>
+                </div>
+                <div class="server-action">➡️</div>
+            </div>
+
+            <div class="server-item">
+                <div class="server-flag">🇺🇸</div>
+                <div class="server-info">
+                    <div class="server-title">US Central</div>
+                    <div class="server-subtitle">Chicago</div>
+                </div>
+                <div class="server-action">➕</div>
+            </div>
+
+            <div class="server-item">
+                <div class="server-flag">🇺🇸</div>
+                <div class="server-info">
+                    <div class="server-title">US East</div>
+                    <div class="server-subtitle">New York</div>
+                </div>
+                <div class="server-action">➕</div>
+            </div>
+
+            <div class="server-item">
+                <div class="server-flag">🇺🇸</div>
+                <div class="server-info">
+                    <div class="server-title">US West</div>
+                    <div class="server-subtitle">Los Angeles</div>
+                </div>
+                <div class="server-action">➕</div>
+            </div>
+
+            <div class="server-item">
+                <div class="server-flag">🇺🇸</div>
+                <div class="server-info">
+                    <div class="server-title">WINDFLIX US</div>
+                    <div class="server-subtitle">Streaming optimized</div>
+                </div>
+                <div class="server-action">➕</div>
+            </div>
+
+            <div class="server-item">
+                <div class="server-flag">🇨🇦</div>
+                <div class="server-info">
+                    <div class="server-title">Canada East</div>
+                    <div class="server-subtitle">Toronto</div>
+                </div>
+                <div class="server-action">➕</div>
+            </div>
+
+            <div class="server-item">
+                <div class="server-flag">🇨🇦</div>
+                <div class="server-info">
+                    <div class="server-title">Canada West</div>
+                    <div class="server-subtitle">Vancouver</div>
+                </div>
+                <div class="server-action">➕</div>
+            </div>
+
+            <div class="server-item">
+                <div class="server-flag">🇨🇦</div>
+                <div class="server-info">
+                    <div class="server-title">WINDFLIX CA</div>
+                    <div class="server-subtitle">Streaming optimized</div>
+                </div>
+                <div class="server-action">➕</div>
+            </div>
+
+            <div class="server-item">
+                <div class="server-flag">🇦🇹</div>
+                <div class="server-info">
+                    <div class="server-title">Austria</div>
+                    <div class="server-subtitle">Vienna</div>
+                </div>
+                <div class="server-action">➕</div>
+            </div>
+        </div>
+
+        <!-- Upgrade Banner -->
+        <div class="upgrade-banner">
+            <div class="upgrade-content">
+                <div class="upgrade-title">Upgrade to Pro</div>
+                <div class="upgrade-data">11.00 GB</div>
+                <div class="upgrade-subtitle">Unlock full access to Windscribe</div>
+            </div>
+            <div class="upgrade-arrow">➡️</div>
+        </div>
+    </div>
+</body>
+</html>

@@ -15,6 +15,26 @@ TawRay is a modern VPN application UI built with Kotlin and Jetpack Compose, fea
 
 *Screenshots will be added after the first build*
 
+## Web Preview
+
+You can preview the UI design in your browser without building the Android app!
+
+**View the live preview:** [TawRay UI Preview](https://tawanaproxyofficial.github.io/TawRay-UI/)
+
+### Enabling GitHub Pages
+
+To enable GitHub Pages for this repository:
+
+1. Go to your repository on GitHub
+2. Navigate to **Settings** > **Pages**
+3. Under **Source**, select:
+   - Branch: `main` (or your default branch)
+   - Folder: `/docs`
+4. Click **Save**
+5. GitHub will automatically publish the preview at: `https://tawanaproxyofficial.github.io/TawRay-UI/`
+
+The web preview is a single HTML file located in `docs/index.html` that mimics the Android app UI using pure HTML and CSS.
+
 ## Technical Stack
 
 - **Language**: Kotlin
